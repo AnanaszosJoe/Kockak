@@ -10,6 +10,8 @@
     >git status
 - Commit, az új verzió létrehozása:
     > git commit -m "firstCommit" (Helyi repo inicializálása)
+- Commit ellenőrzés:
+    > git status
 - Távoli repo létrehozása (a GitHub oldalon)
 - Távoli és helyi repo összekapcsolása:
     > git remote add origin https://token@github.com/ananaszosjoe/testrepo.git
