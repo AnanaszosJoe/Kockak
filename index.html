@@ -49,12 +49,13 @@
             ++total
             if(total>5){
                 console.log(domObj);
-                domObj.disabled=true
+                //domObj.disabled=true
                 dices.forEach((nr) => {
                     const item = `<i class="fa-solid fa-dice-${nr} fa-5x"></i>`
                     document.querySelector('.dices').innerHTML += item
                 })
                 document.getElementById('new').classList.toggle('hide')
+                document.getElementById('play').classList.toggle('hide')
                 return
             }
             const rndNr = Math.floor(Math.random()*6) //0-5 között lesz, ami pont jó a tömb indexeléséhez
@@ -73,7 +74,8 @@
             document.querySelector('p').innerHTML='Dobj!'
             document.querySelector('.dices').innerHTML=''
             document.getElementById('new').classList.toggle('hide')
-            document.getElementById('play').disabled = false
+            document.getElementById('play').classList.toggle('hide')
+            //document.getElementById('play').disabled = false
 
         }
         
