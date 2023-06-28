@@ -26,3 +26,4 @@
 - Publikálandó fájl neve: index.html
 - Settings/Pages/Branch/Master majd Save
 - Action-ben látható a publikálási folyamat
+- Minden commit után automatikusan újrapublikálódik az oldal
