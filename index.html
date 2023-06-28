@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .container {
+            max-width: 600px;            
+            margin: 0 auto;
+            text-align: center;
+        }
+        button {
+            background-color: green;
+            
+            color: white;
+            border-radius: 10%;
+        }
+        button:hover {
+            background-color: lightgreen;
+        }
+        .dices i {
+            margin: 10px;
+        }
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div id="dice"><i class="fa-solid fa-dice-one fa-10x"></i></div>
+    <br><br>
+    <p>Dobj!</p>
+    <button id="play" onclick="gurul(this)">Guríts!</button>
+    <br><br>
+    <button class="hide" id="new" onclick="init()">Új játék!</button>
+    <br>
+    <hr>
+    <div class="dices"></div>
+</div>
+    <script>
+        const array = ['one', 'two', 'three', 'four', 'five', 'six']
+        const diceIcon = '<i class="fa-solid  fa-10x"></i>'
+        let total = 0
+        let dices = []
+        function gurul(domObj){
+            ++total
+            if(total>5){
+                console.log(domObj);
+                domObj.disabled=true
+                dices.forEach((nr) => {
+                    const item = `<i class="fa-solid fa-dice-${nr} fa-5x"></i>`
+                    document.querySelector('.dices').innerHTML += item
+                })
+                document.getElementById('new').classList.toggle('hide')
+                return
+            }
+            const rndNr = Math.floor(Math.random()*6) //0-5 között lesz, ami pont jó a tömb indexeléséhez
+            console.log(`${total}.dobás: ${rndNr+1}`);
+            document.querySelector('#dice').innerHTML=diceIcon
+            const diceClass = 'fa-dice-' + array[rndNr]
+            dices.push(array[rndNr])
+            console.log(dices);
+            document.querySelector('i').classList.add(diceClass)
+            document.querySelector('p').innerHTML=`${total}. dobás eredménye`
+        }
+
+        function init(){
+            total = 0
+            dices = []
+            document.querySelector('p').innerHTML='Dobj!'
+            document.querySelector('.dices').innerHTML=''
+            document.getElementById('new').classList.toggle('hide')
+            document.getElementById('play').disabled = false
+
+        }
+        
+    </script>
+</body>
+</html>
